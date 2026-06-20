@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SRS FITNESS - FITNESS Equipment Services and repais</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+:root{
+ --bg:#f6f9fc;
+ --card:#ffffff;
+ --primary:#0891b2;       /* cool teal-blue accent */
+ --primary-light:#e3f4f8; /* light tint for badges */
+ --text:#16222b;
+ --muted:#5b6b7a;
+ --border:#e6edf2;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+}
+
+section{
+padding:80px 8%;
+}
+
+h2{
+font-size:40px;
+text-align:center;
+margin-bottom:20px;
+color:var(--text);
+}
+
+.section-sub{
+text-align:center;
+max-width:800px;
+margin:auto;
+margin-bottom:50px;
+color:var(--muted);
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+z-index:999;
+background:var(--card);
+box-shadow:0 2px 15px rgba(15,40,60,.06);
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:24px;
+font-weight:800;
+color:var(--text);
+}
+
+.logo span{
+color:var(--primary);
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+color:var(--text);
+font-weight:600;
+}
+
+nav a:hover{
+color:var(--primary);
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:120px 20px;
+background:
+linear-gradient(rgba(246,249,252,.93),rgba(246,249,252,.93)),
+url("https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
+}
+
+.hero h1{
+font-size:62px;
+font-weight:800;
+color:var(--text);
+}
+
+.hero h1 span{
+color:var(--primary);
+}
+
+.hero h3{
+font-size:26px;
+font-weight:500;
+margin:10px 0;
+color:var(--muted);
+}
+
+.hero p{
+font-size:19px;
+max-width:800px;
+margin:20px auto;
+line-height:1.8;
+color:var(--muted);
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+border:none;
+border-radius:50px;
+background:var(--primary);
+color:white;
+font-weight:700;
+cursor:pointer;
+font-size:16px;
+text-decoration:none;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(8,145,178,.3);
+}
+
+/* CARDS */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.card{
+background:var(--card);
+padding:30px;
+border-radius:20px;
+border:1px solid var(--border);
+box-shadow:0 5px 20px rgba(15,40,60,.05);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 12px 30px rgba(15,40,60,.1);
+}
+
+.card .icon-badge{
+width:60px;
+height:60px;
+border-radius:16px;
+background:var(--primary-light);
+display:flex;
+align-items:center;
+justify-content:center;
+margin-bottom:18px;
+}
+
+.card i{
+font-size:26px;
+color:var(--primary);
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.card p{
+color:var(--muted);
+font-size:15px;
+line-height:1.6;
+}
+
+/* ABOUT */
+
+.about{
+background:var(--card);
+}
+
+.about-box{
+max-width:1000px;
+margin:auto;
+line-height:1.9;
+font-size:18px;
+color:var(--text);
+}
+
+.about-box ul{
+margin-top:20px;
+padding-left:20px;
+color:var(--muted);
+}
+
+.about-box ul li{
+margin-bottom:6px;
+}
+
+/* HOW WE WORK */
+
+.steps{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.step{
+background:var(--card);
+padding:30px;
+border-radius:20px;
+border:1px solid var(--border);
+box-shadow:0 5px 20px rgba(15,40,60,.05);
+}
+
+.step span{
+font-size:36px;
+font-weight:800;
+color:var(--primary);
+}
+
+.step h3{
+margin:10px 0;
+}
+
+.step p{
+color:var(--muted);
+font-size:15px;
+line-height:1.6;
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+max-width:1200px;
+margin:auto;
+}
+
+.gallery-item{
+position:relative;
+border-radius:20px;
+overflow:hidden;
+aspect-ratio:4/3;
+border:1px solid var(--border);
+box-shadow:0 5px 20px rgba(15,40,60,.06);
+}
+
+.gallery-item img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+transition:transform .4s ease;
+}
+
+.gallery-item:hover img{
+transform:scale(1.07);
+}
+
+/* REVIEW */
+
+.review{
+max-width:800px;
+margin:auto;
+text-align:center;
+background:var(--card);
+padding:40px;
+border-radius:20px;
+border:1px solid var(--border);
+box-shadow:0 5px 20px rgba(15,40,60,.05);
+}
+
+.review .stars{
+font-size:28px;
+color:#f5b400;
+margin-bottom:15px;
+}
+
+.review p{
+color:var(--muted);
+}
+
+/* CONTACT */
+
+.contact{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:25px;
+padding:50px;
+text-align:center;
+box-shadow:0 5px 25px rgba(15,40,60,.06);
+}
+
+.contact h3{
+font-size:32px;
+margin-bottom:20px;
+color:var(--text);
+}
+
+.contact p{
+font-size:17px;
+color:var(--muted);
+margin:6px 0;
+}
+
+/* FLOATING SIDE ICONS */
+
+.float-buttons{
+position:fixed;
+right:20px;
+top:50%;
+transform:translateY(-50%);
+display:flex;
+flex-direction:column;
+gap:15px;
+z-index:9999;
+}
+
+.float-buttons a{
+width:58px;
+height:58px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+color:white;
+font-size:24px;
+text-decoration:none;
+opacity:0;
+transform:translateX(50px) scale(.6);
+}
+
+.call{
+background:#2563eb;
+box-shadow:0 8px 22px rgba(37,99,235,.3);
+animation:popIn .5s cubic-bezier(.34,1.56,.64,1) .4s forwards;
+}
+
+.whatsapp{
+background:#25D366;
+animation:popIn .5s cubic-bezier(.34,1.56,.64,1) .65s forwards,
+pulse 2.4s ease-in-out 1.6s infinite;
+}
+
+@keyframes popIn{
+to{opacity:1; transform:translateX(0) scale(1);}
+}
+
+@keyframes pulse{
+0%{box-shadow:0 8px 22px rgba(37,211,102,.3),0 0 0 0 rgba(37,211,102,.45);}
+70%{box-shadow:0 8px 22px rgba(37,211,102,.3),0 0 0 14px rgba(37,211,102,0);}
+100%{box-shadow:0 8px 22px rgba(37,211,102,.3),0 0 0 0 rgba(37,211,102,0);}
+}
+
+/* MODAL */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(15,30,40,.55);
+justify-content:center;
+align-items:center;
+z-index:10000;
+padding:20px;
+}
+
+.modal-content{
+background:var(--card);
+padding:32px;
+border-radius:22px;
+width:100%;
+max-width:440px;
+box-shadow:0 25px 60px rgba(15,40,60,.2);
+}
+
+.modal-content h3{
+margin-bottom:6px;
+color:var(--text);
+}
+
+.modal-sub{
+color:var(--muted);
+font-size:14px;
+margin-bottom:18px;
+}
+
+.field-label{
+display:block;
+font-size:13px;
+font-weight:600;
+color:var(--muted);
+margin:14px 0 6px;
+}
+
+.modal-content input{
+width:100%;
+padding:12px 14px;
+border:1px solid var(--border);
+border-radius:12px;
+font-size:15px;
+background:var(--bg);
+}
+
+.modal-content input:focus{
+outline:none;
+border-color:var(--primary);
+box-shadow:0 0 0 3px var(--primary-light);
+}
+
+.modal-content .btn{
+width:100%;
+margin-top:22px;
+text-align:center;
+}
+
+.close{
+float:right;
+font-size:26px;
+cursor:pointer;
+color:var(--muted);
+}
+
+footer{
+padding:25px;
+text-align:center;
+color:var(--muted);
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:40px;
+}
+
+.hero h3{
+font-size:20px;
+}
+
+nav ul{
+display:none;
+}
+
+.gallery-item{
+aspect-ratio:16/10;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">SRS <span>FITNESS</span></div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<div class="float-buttons">
+<a href="tel:+919121817575" class="call" aria-label="Call SRS Fitness">
+<i class="fas fa-phone"></i>
+</a>
+
+<a href="https://wa.me/919121817575" target="_blank" class="whatsapp" aria-label="WhatsApp SRS Fitness">
+<i class="fab fa-whatsapp"></i>
+</a>
+</div>
+
+<section class="hero">
+
+<div>
+
+<h1>SRS <span>FITNESS</span></h1>
+
+<h3>FITNESS Equipment Services and repais</h3>
+
+<p>
+🏋️‍♂️ 16+ Years of Fitness Equipment Repair Expertise.
+Treadmill, Cross Trainer, Exercise Bike, Home Gym &
+Commercial Gym Equipment Repair and Maintenance.
+</p>
+
+<button class="btn" onclick="openForm()">
+📋 Book Service
+</button>
+
+</div>
+
+</section>
+
+<section id="about" class="about">
+
+<h2>About Us</h2>
+
+<div class="about-box">
+
+<p>
+Hyderabad's trusted hands behind every workout machine.
+Founded by Subba Rao, SRS Fitness Equipment Services has spent over a decade and a half restoring and maintaining fitness equipment for homes, hotels, residential complexes and full-scale commercial gyms across Hyderabad.
+</p>
+
+<p>
+Whether it's a worn-out treadmill belt, a glitching massage chair, or a stiff multi-gym cable — our technicians arrive with original spares, the right tools, and decades of collective expertise.
+</p>
+
+<ul>
+<li>✔ Hyderabad's most trusted equipment service partner</li>
+<li>✔ Founded by veteran technician Subba Rao</li>
+<li>✔ Home gyms, commercial gyms & fitness studios</li>
+<li>✔ Same-day diagnostic and on-site repair available</li>
+</ul>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<h2>Every machine. Every fix.</h2>
+
+<p class="section-sub">
+From cardio to strength, residential to commercial — we service the equipment that keeps Hyderabad moving.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon-badge"><i class="fas fa-person-running"></i></div>
+<h3>Treadmill Repair</h3>
+<p>Belt replacement, motor service, console diagnostics, lubrication.</p>
+</div>
+
+<div class="card">
+<div class="icon-badge"><i class="fas fa-chair"></i></div>
+<h3>Massage Chair Service</h3>
+<p>Roller, motor, heat & airbag system repair for all brands.</p>
+</div>
+
+<div class="card">
+<div class="icon-badge"><i class="fas fa-bicycle"></i></div>
+<h3>Exercise Bike Repair</h3>
+<p>Resistance system, console, pedals, flywheel & magnetic brake fixes.</p>
+</div>
+
+<div class="card">
+<div class="icon-badge"><i class="fas fa-dumbbell"></i></div>
+<h3>Multi Gym Maintenance</h3>
+<p>Cable replacement, pulley service, frame & pin pad restoration.</p>
+</div>
+
+<div class="card">
+<div class="icon-badge"><i class="fas fa-gears"></i></div>
+<h3>Cross Trainer Repair</h3>
+<p>Stride mechanism, drive belt, console & sensor calibration.</p>
+</div>
+
+<div class="card">
+<div class="icon-badge"><i class="fas fa-weight-hanging"></i></div>
+<h3>Strength Equipment Service</h3>
+<p>Plate-loaded & commercial gym machines — pin, lever & smith repairs.</p>
+</div>
+
+<div class="card">
+<div class="icon-badge"><i class="fas fa-screwdriver-wrench"></i></div>
+<h3>Spare Parts Replacement</h3>
+<p>Genuine motors, belts, boards, rollers & cables for every brand.</p>
+</div>
+
+<div class="card">
+<div class="icon-badge"><i class="fas fa-shield-heart"></i></div>
+<h3>Preventive Maintenance</h3>
+<p>AMC plans for homes, hotels & gyms — keep equipment running smooth.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="process">
+
+<h2>Simple. Transparent. Done right.</h2>
+
+<div class="steps">
+
+<div class="step">
+<span>01</span>
+<h3>Call or WhatsApp</h3>
+<p>Reach out anytime. Share the issue & equipment details — quick callback guaranteed.</p>
+</div>
+
+<div class="step">
+<span>02</span>
+<h3>Inspection & Diagnosis</h3>
+<p>Our technician visits, inspects the machine, and provides a transparent quote.</p>
+</div>
+
+<div class="step">
+<span>03</span>
+<h3>Repair & Service</h3>
+<p>Genuine spares, expert hands. Most repairs completed in the very first visit.</p>
+</div>
+
+<div class="step">
+<span>04</span>
+<h3>Testing & Delivery</h3>
+<p>Full performance test, cleanup and handover — your machine, like new again.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Before & After Repairs</h2>
+
+<p class="section-sub">
+A glimpse of equipment we've serviced and restored across Hyderabad.
+</p>
+
+<div class="gallery">
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1721394749382-223a18ce8bb9?auto=format&fit=crop&w=800&q=80" alt="Row of treadmills in a gym">
+</div>
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1620188540300-c156a625c6fc?auto=format&fit=crop&w=800&q=80" alt="Dumbbell rack at a gym">
+</div>
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1637666218229-1fe0a9419267?auto=format&fit=crop&w=800&q=80" alt="Row of gym exercise machines">
+</div>
+
+<div class="gallery-item">
+<img src="https://images.unsplash.com/photo-1591741535018-d042766c62eb?auto=format&fit=crop&w=800&q=80" alt="Exercise bike equipment">
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Customer Reviews</h2>
+
+<div class="review">
+
+<div class="stars">
+⭐⭐⭐⭐⭐
+</div>
+
+<h3>Trusted Across Hyderabad</h3>
+
+<p>
+Excellent service, genuine spare parts, quick response,
+and professional repairs.
+</p>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="contact">
+
+<h3>SRS Fitness Equipment Repair & Services</h3>
+
+<p>📞 9121817575</p>
+<p>💬 WhatsApp Support</p>
+<p>📍 Hyderabad</p>
+<p>🕒 7 Days Service Available</p>
+
+<br>
+
+<a href="tel:+919121817575" class="btn">
+Call Now
+</a>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 SRS Fitness Equipment Services
+</footer>
+
+<div class="modal" id="bookingModal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeForm()">&times;</span>
+
+<h3>Book a Service</h3>
+<p class="modal-sub">Fill in your details — we'll WhatsApp you back to confirm.</p>
+
+<label class="field-label">Name</label>
+<input type="text" id="name" placeholder="Your name" required>
+
+<label class="field-label">Number</label>
+<input type="tel" id="phone" placeholder="Your phone number" required>
+
+<label class="field-label">Time to Contact</label>
+<input type="text" id="time" placeholder="e.g. 10 AM - 1 PM" required>
+
+<button class="btn" onclick="sendWhatsApp()">
+Send via WhatsApp
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function openForm(){
+document.getElementById('bookingModal').style.display='flex';
+}
+
+function closeForm(){
+document.getElementById('bookingModal').style.display='none';
+}
+
+function sendWhatsApp(){
+
+let name=document.getElementById('name').value;
+let phone=document.getElementById('phone').value;
+let time=document.getElementById('time').value;
+
+if(!name || !phone || !time){
+alert('Please fill in all the details.');
+return;
+}
+
+let message=
+`SRS FITNESS SERVICE BOOKING
+
+Name: ${name}
+Phone: ${phone}
+Preferred Contact Time: ${time}`;
+
+window.open(
+'https://wa.me/919121817575?text=' + encodeURIComponent(message),
+'_blank'
+);
+
+closeForm();
+
+}
+
+</script>
+
+</body>
+</html>
